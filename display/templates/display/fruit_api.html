@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fruits & Students (API Fetch)</title>
+
+    <script>
+        fetch("/fruit_student_api/")
+            .then(r => r.json())
+            .then(d => console.log(d))
+            .catch(e => console.error("Error:", e));
+    </script>
+
+</head>
+
+<body>
+    <h1>Fruits & Students (Loaded via API)</h1>
+
+    <h2>Fruits</h2>
+    <ul id="fruit-list"></ul>
+
+    <h2>Students</h2>
+    <ol id="student-list"></ol>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("/fruit_student/api/")
+                .then(response => response.json())
+                .then(data => {
+                    const fruitList = document.getElementById("fruit-list");
+                    const studentList = document.getElementById("student-list");
+
+                    data.fruits.forEach(fruit => {
+                        const li = document.createElement("li");
+                        li.textContent = fruit;
+                        fruitList.appendChild(li);
+                    });
+
+                    data.students.forEach(student => {
+                        const li = document.createElement("li");
+                        li.textContent = student;
+                        studentList.appendChild(li);
+                    });
+                })
+                .catch(err => console.error("Error fetching data:", err));
+        });
+
+    </script>
+</body>
+
+</html>

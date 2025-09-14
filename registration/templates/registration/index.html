@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+
+<body>
+    <h2 style="text-align:center; color:#2c3e50;">Student Registration</h2>
+
+    <style>
+        form {
+            background: linear-gradient(to right, #f9f9f9, #e0f7fa);
+            padding: 20px;
+            border-radius: 12px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+        }
+
+        #confirmation {
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+
+    <form id="registrationForm" onsubmit="handleSubmit(event)">
+        <label for="student">Select Student:</label>
+        <select id="student" name="student">
+            {% for student in students %}
+            <option value="{{ student }}">{{ student }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+            {% for course in courses %}
+            <option value="{{ course }}">{{ course }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div id="confirmation"></div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const student = document.getElementById("student").value;
+            const course = document.getElementById("course").value;
+
+            // Show message
+            document.getElementById("confirmation").innerText =
+                `${student} has successfully registered for ${course}`;
+
+
+            document.getElementById("registrationForm").reset();
+        }
+    </script>
+
+</body>
+
+</html>

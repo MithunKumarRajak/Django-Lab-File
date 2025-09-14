@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Student List</title>
+</head>
+
+<body>
+    <h1>Unorder Fruit List</h1>
+    <ul>
+        {% for fruit in fruits %}
+        <li>{{fruit}}</li>
+        {% endfor %}
+
+    </ul>
+    <h1>Ordered list of Student</h1>
+    <ol>
+        {% for student in students %}
+        <li>{{ student }}</li>
+        {% endfor %}
+    </ol>
+
+
+</body>
+
+</html>

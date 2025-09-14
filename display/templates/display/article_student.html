@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Articles & Students</title>
+</head>
+
+<body >
+    <h2>Articles</h2>
+    <ul>
+        {% for article in articles %}
+        <li>{{ article }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Students</h2>
+    <ol>
+        {% for student in students %}
+        <li>{{ student }}</li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>

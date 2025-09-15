@@ -1,5 +1,5 @@
 
-# 🐍 Django Project – Technical Summary of Issues & Fixes
+# Django Project – Technical Summary of Issues & Fixes
 
 This document summarizes the key technical problems encountered while building a multi-app Django project (with apps like `display`, `registration`, etc.) and the solutions applied.
 

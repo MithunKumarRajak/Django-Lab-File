@@ -6,7 +6,7 @@ from about.views import about, home_page
 from display_time.views import display_time, twentyfour
 from display.views import fruit_student, fruit_student_api, fruit_student_page, article_student
 # from display.views import fruit_student_api # above metion
-from registration.views import registration
+from registration.views import student_register
 
 
 urlpatterns = [
@@ -19,7 +19,7 @@ urlpatterns = [
     path('fruit_student/api/', fruit_student_api, name='fruit_student_api'),
     path('fruit_student_page/', fruit_student_page, name='fruit_student_page'),
     path('article_student/', article_student, name='article_student'),
-    path('registration/', registration, name='registration'),
+    path('student/', student_register, name='student_register'),
 
 
 

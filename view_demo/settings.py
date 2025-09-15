@@ -65,8 +65,9 @@ ROOT_URLCONF = 'view_demo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [],
+        # 'DIRS': [], # Default empty list
         'APP_DIRS': True,
+        # Need to specify the template directory
         'DIRS': [BASE_DIR / 'display' / 'templates'],
         'OPTIONS': {
             'context_processors': [

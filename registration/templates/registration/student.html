@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Registration</title>
+</head>
+
+<body>
+    <h1>Student Registration</h1>
+
+    {% if success %}
+    <p style="color: green;">✔ Student registered successfully!</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label>Course:</label>
+        <input type="text" name="course" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>

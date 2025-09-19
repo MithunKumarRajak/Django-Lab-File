@@ -1,16 +1,284 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Project</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mithun Kumar Rajak — Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Mithun Kumar Rajak — Computer Science & Engineering student. Portfolio / home page.">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <style>
+    :root{
+      --accent: rgb(67,123,123);
+      --accent-2: #6bb6b6;
+      --bg-1: linear-gradient(135deg,#f7f9fb 0%, #eef8f8 100%);
+      --card: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.6);
+      --muted: #5b6b6b;
+      --glass-border: rgba(67,123,123,0.12);
+      --radius: 14px;
+      --shadow: 0 6px 18px rgba(20,30,40,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg-1);
+      color:#16383a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:32px;
+    }
 
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:var(--shadow)}
+    .nav{display:flex;gap:18px;align-items:center}
+    .nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .nav a.primary{background:var(--accent);color:white;padding:10px 14px;border-radius:10px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:32px}
+    .hero-card{background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid var(--glass-border);box-shadow:var(--shadow)}
+    .hero h1{margin:0;font-size:32px;color:var(--accent)}
+    .hero p.lead{margin:8px 0 18px;color:#375b5b;font-weight:500}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+    .btn-filled{background:var(--accent);color:white}
+
+    .profile-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px}
+    .avatar{width:160px;height:160px;border-radius:18px;overflow:hidden;border:6px solid rgba(255,255,255,0.8);box-shadow:0 10px 30px rgba(67,123,123,0.12);background:linear-gradient(180deg, #fff,#f1fbfb)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .title{font-weight:700;margin-top:12px}
+    .subtitle{color:var(--muted);font-weight:600}
+
+    /* Sections */
+    section{margin-bottom:28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass-border);box-shadow:var(--shadow)}
+    .skill{display:flex;flex-direction:column;gap:8px}
+    .skill .bar{height:10px;border-radius:99px;background:rgba(0,0,0,0.06);overflow:hidden}
+    .skill .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:60%}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project-card{display:flex;gap:12px;align-items:flex-start}
+    .proj-thumb{width:88px;height:64px;border-radius:8px;background:linear-gradient(135deg,#f7a1a1,#ffdca8);flex-shrink:0}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 340px;gap:16px}
+    form input, form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(20,30,30,0.06);font-size:14px}
+    form textarea{min-height:140px;resize:vertical}
+
+    footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;border-top:1px dashed rgba(20,30,30,0.04);color:var(--muted);font-size:13px}
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+    }
+
+    /* subtle entry animation */
+    .reveal{opacity:0;transform:translateY(8px);animation:reveal .6s ease forwards}
+    .reveal.delay{animation-delay:.12s}
+    @keyframes reveal{to{opacity:1;transform:none}}
+  </style>
 </head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MK</div>
+        <div>
+          <div style="font-weight:700">Mithun Kumar Rajak</div>
+          <div style="font-size:13px;color:var(--muted)">Computer Science &amp; Engineering</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="primary">Contact</a>
+      </nav>
+    </header>
 
-<body style="color: rgb(67, 123, 123);" s>
-    <h1>Mithun Kumar Rajak</h1>
-    <p>Computer Science and Engineering</p>
+    <main>
+      <section class="hero">
+        <div class="hero-card reveal">
+          <h1 style="font-family:Poppins, Inter;">Hi, I'm <span style="color:var(--accent)">Mithun Kumar Rajak</span></h1>
+          <p class="lead">A Computer Science &amp; Engineering student building web apps, learning cybersecurity, and exploring full‑stack development. I'm passionate about practical projects, clean code, and problem solving.</p>
+
+          <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-filled">Download Resume</button>
+              <button class="btn btn-outline">View Projects</button>
+            </div>
+            <div style="margin-left:auto;color:var(--muted);font-weight:600">Based in India • B.Tech Student</div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <div class="card" style="display:flex;gap:12px;align-items:center;min-width:220px">
+              <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#fff,#f3fffb);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)">CS</div>
+              <div>
+                <div style="font-weight:700">Field</div>
+                <div style="color:var(--muted)">Computer Science &amp; Engineering</div>
+              </div>
+            </div>
+            <div class="card" style="display:flex;gap:12px;align-items:center;min-width:220px">
+              <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#fff,#fff6f0);display:flex;align-items:center;justify-content:center;font-weight:700;color:#ff7a59">🌱</div>
+              <div>
+                <div style="font-weight:700">Learning</div>
+                <div style="color:var(--muted)">Web Dev • Cybersecurity • ML basics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="profile-card hero-card reveal delay">
+          <div class="avatar">
+            <!-- replace with your photo: <img src="/path/to/photo.jpg" alt="Mithun Rajak"> -->
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="profile placeholder">
+          </div>
+          <div class="title">Mithun Kumar Rajak</div>
+          <div class="subtitle">B.Tech — Computer Science &amp; Engineering</div>
+          <div style="margin-top:10px;color:var(--muted);font-size:14px">CEH v12 • Google Cybersecurity Certificate • Python, JavaScript</div>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <a href="#contact" class="btn btn-outline">Hire / Contact</a>
+            <a href="#projects" class="btn btn-filled">See Work</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="reveal">
+        <div class="card">
+          <h2 style="margin-top:0;color:var(--accent)">About</h2>
+          <p style="color:var(--muted)">I'm a passionate CSE student currently learning full-stack web development and cybersecurity. I enjoy turning ideas into practical projects — building small web apps, automations, and experimenting with machine learning prototypes for real problems. I focus on readable code, simple UI, and security-aware development practices.</p>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Education: B.Tech (CSE) — Jagran Lakecity University, Bhopal (2023–2027)</li>
+            <li>Interests: Web apps, cybersecurity, forensic computing, automation</li>
+            <li>Open to internships, collaborations and project-based work</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills" class="reveal delay">
+        <h3 style="margin:0 0 12px 0;color:var(--accent)">Skills</h3>
+        <div class="grid-3">
+          <div class="card">
+            <h4 style="margin-top:0">Languages &amp; Tools</h4>
+            <p style="color:var(--muted);margin-top:6px">Python, C/C++, Java, JavaScript, SQL, Git, Linux (Kali)</p>
+            <div style="height:10px"></div>
+            <div class="skill">
+              <div style="font-weight:700">Web Development</div>
+              <div class="bar"><div class="fill" style="width:78%"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0">Cybersecurity</h4>
+            <p style="color:var(--muted);margin-top:6px">CEH v12 — Familiar with Nmap, Burp Suite, Wireshark, basic pentesting flows</p>
+            <div style="height:10px"></div>
+            <div class="skill">
+              <div style="font-weight:700">Security Basics</div>
+              <div class="bar"><div class="fill" style="width:68%"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0">Data &amp; ML</h4>
+            <p style="color:var(--muted);margin-top:6px">Pandas, scikit-learn basics — prototyping models and data pipelines</p>
+            <div style="height:10px"></div>
+            <div class="skill">
+              <div style="font-weight:700">ML Prototyping</div>
+              <div class="bar"><div class="fill" style="width:45%"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="reveal">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <h3 style="color:var(--accent);margin:0">Selected Projects</h3>
+          <div style="color:var(--muted);font-weight:600">(student projects & prototypes)</div>
+        </div>
+
+        <div class="projects">
+          <div class="project-card card">
+            <div class="proj-thumb"></div>
+            <div>
+              <div style="font-weight:700">SnapWork — Classifieds clone (work in progress)</div>
+              <div style="color:var(--muted);font-size:14px;margin-top:6px">Full-stack project using Next.js (app router), MongoDB, implementing item cards, upload, and basic authentication.</div>
+              <div style="margin-top:8px;font-size:13px;color:var(--muted)">Tech: Next.js, MongoDB, TailwindCSS</div>
+            </div>
+          </div>
+
+          <div class="project-card card">
+            <div class="proj-thumb" style="background:linear-gradient(135deg,#b8e0ff,#c5ffd6)"></div>
+            <div>
+              <div style="font-weight:700">Food Freshness Predictor (prototype)</div>
+              <div style="color:var(--muted);font-size:14px;margin-top:6px">An AI/ML hackathon prototype estimating shelf-life from sensor data and images — notification pipeline included.</div>
+              <div style="margin-top:8px;font-size:13px;color:var(--muted)">Tech: Python, OpenCV, scikit-learn</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal delay">
+        <h3 style="color:var(--accent);margin-bottom:12px">Contact</h3>
+        <div class="contact-grid">
+          <div class="card">
+            <p style="color:var(--muted)">Want to work together, offer an internship, or just say hi? Drop a message and I'll get back to you.</p>
+            <form onsubmit="event.preventDefault();alert('This is a demo form — replace with your form handler')">
+              <div style="display:flex;gap:12px;margin-bottom:12px">
+                <input required placeholder="Your name" />
+                <input required placeholder="Your email" />
+              </div>
+              <input placeholder="Subject" style="margin-bottom:12px" />
+              <textarea placeholder="Message" required></textarea>
+              <div style="display:flex;justify-content:flex-end;margin-top:10px">
+                <button class="btn btn-filled" type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h4 style="margin-top:0">Contact Details</h4>
+            <p style="color:var(--muted);margin:6px 0">Email: <strong>youremail@example.com</strong></p>
+            <p style="color:var(--muted);margin:6px 0">Location: India</p>
+            <div style="height:12px"></div>
+            <h4 style="margin:6px 0">Social</h4>
+            <div style="display:flex;gap:10px;margin-top:8px">
+              <a href="#" style="text-decoration:none;font-weight:700;color:var(--accent)">LinkedIn</a>
+              <a href="#" style="text-decoration:none;font-weight:700;color:var(--accent)">GitHub</a>
+              <a href="#" style="text-decoration:none;font-weight:700;color:var(--accent)">Portfolio</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <strong>Mithun Kumar Rajak</strong> — Computer Science &amp; Engineering</div>
+      <div style="color:var(--muted)">Built with ❤️ • Single-file HTML</div>
+    </footer>
+  </div>
+
+  <script>
+    // small JS to progressively reveal sections when visible
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');e.target.style.opacity=1}})
+    },{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
 </body>
-
 </html>

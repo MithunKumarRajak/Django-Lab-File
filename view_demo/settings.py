@@ -23,9 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-3de_qh*nr!2&6&g!$^b&uno*6l^fy8n722=a1!qhe+!=^090wo'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True  # Important for production if DEBUG is True then it will show detailed error messages
+
+# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS means ki konsa host se request aa sakti hai , useful for  404 error pages
+# for development purpose only use * in production use specific host names
 ALLOWED_HOSTS = []
 
 
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'about',
     'registration',
+    'vegetable'
 
 
 ]

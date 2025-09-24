@@ -24,13 +24,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3de_qh*nr!2&6&g!$^b&uno*6l^fy8n722=a1!qhe+!=^090wo'
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Important for production if DEBUG is True then it will show detailed error messages
+# SECURITY WARNING: debug turned on in production! ==> DEBUG = True
+
+DEBUG = False  # Important for production if DEBUG is True then it will show detailed error messages
+# DEBUG = True --> If you just want to play around, and not going to deploy your work, you can set DEBUG = True
+# If you plan to deploy your work, you should set DEBUG = False
 
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS means ki konsa host se request aa sakti hai , useful for  404 error pages
-# for development purpose only use * in production use specific host names
+# for development purpose only use '*' and In production use specific host names or IP addresses
 ALLOWED_HOSTS = []
+"""
+ALLOWED_HOSTS
+When using DEBUG = False you have to specify which host name(s) are allowed to host your work. You could choose '127.0.0.1' or 'localhost' which both represents the address of your local machine.
+"""
 
 
 # Application definition
@@ -63,6 +70,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    """
+To make Django aware of you wanting to run WhitNoise, you have to specify it in the MIDDLEWARE list in settings.py file
+"""
+    'whitenoise.middleware.whitenoise.whiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'view_demo.urls'

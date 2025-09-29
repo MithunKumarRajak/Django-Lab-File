@@ -16,7 +16,6 @@ def registration(request):
 
 # trying to add data to database
 
-
 def student_register(request):
     if request.method == "POST":
         name = request.POST.get("name")

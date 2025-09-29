@@ -7,6 +7,5 @@ def about(request):
                         <h1>Welcome to the JLU!</h1>
                         """)
 
-
-def home_page(request):
+def home(request):
     return render(request, "index.html")

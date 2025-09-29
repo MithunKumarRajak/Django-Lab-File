@@ -34,6 +34,7 @@ DEBUG = True  # Important for production if DEBUG is True then it will show deta
 # ALLOWED_HOSTS means ki konsa host se request aa sakti hai , useful for  404 error pages
 # for development purpose only use '*' and In production use specific host names or IP addresses
 ALLOWED_HOSTS = []
+
 """
 ALLOWED_HOSTS
 When using DEBUG = False you have to specify which host name(s) are allowed to host your work. You could choose '127.0.0.1' or 'localhost' which both represents the address of your local machine.
@@ -56,8 +57,7 @@ EXTERNAL_APPS = [
     'about',
     'registration',
     'vegetable'
-
-
+    'myapp',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
@@ -70,7 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',  
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 
@@ -82,7 +82,7 @@ TEMPLATES = [
         # 'DIRS': [], # Default empty list
         'APP_DIRS': True,
         # Need to specify the template directory
-        'DIRS': [BASE_DIR / 'display' / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -141,6 +141,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# for collecting static files in production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# for development only and it should be string path
+STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
 STATIC_URL = 'static/'
 
 # Default primary key field type

@@ -10,6 +10,8 @@ from registration.views import student_register , registration
 from vegetable.views import vegetable
 
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),  # render karke banaya hai and In this project, this is home page as default page

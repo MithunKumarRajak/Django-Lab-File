@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'about',
     'registration',
-    'vegetable'
+    'vegetable',
     'myapp',
 ]
 
@@ -141,11 +141,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-# for collecting static files in production
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-# for development only and it should be string path
-STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
+STATIC_DIR = BASE_DIR / 'static'
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [STATIC_DIR,]
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # for production use
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

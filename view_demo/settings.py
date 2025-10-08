@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
 ]
 
 EXTERNAL_APPS = [
@@ -58,6 +57,8 @@ EXTERNAL_APPS = [
     'registration',
     'vegetable',
     'myapp',
+    'courses',
+    'recipes',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
@@ -95,7 +96,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'view_demo.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
@@ -105,7 +105,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -125,26 +124,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# Directory for static files & custom static files directory
 STATIC_DIR = BASE_DIR / 'static'
-STATIC_URL = 'static/'
+# List of directories to search for static files
 STATICFILES_DIRS = [STATIC_DIR,]
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # for production use
+
+# URL to access static files & means ki static files ko kaise access karna hai
+STATIC_URL = 'static/'
+# for production use & Directory where static files will be collected
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Page</title>
+  </head>
+
+  <body>
+    <h1>Welcome to the recipe page!</h1>
+    <form method="post" enctype="multipart/form-data">
+      <!--multipart/form-data :- Important for file uploads otherwise only text
+      data will be sent.-->
+      {% csrf_token %}
+      <!-- Security measure to prevent CSRF
+      attacks -->
+      <h2>Add a Recipe</h2>
+      <div class="mb-3">
+        <label for="recipeName" class="form-label">Recipe Name</label>
+        <input type="text" name="recipeName" required />
+      </div>
+      <div class="mb-3">
+        <label for="recipeDescription" class="form-label"
+          >Recipe Description</label
+        >
+        <textarea name="recipeDescription" rows="4" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="recipeImage" name="recipeImage">Recipe Image</label>
+        <input type="file" name="recipeImage" />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </body>
+</html>

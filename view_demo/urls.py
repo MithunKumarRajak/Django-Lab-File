@@ -1,20 +1,21 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from about.views import about, home 
+from about.views import about, home
 # Django app folder names are case-sensitive
 from display_time.views import display_time, twentyfour
 from display.views import fruit_student, fruit_student_api, fruit_student_page, article_student
 # from display.views import fruit_student_api # above mention
-from registration.views import student_register , registration 
+from registration.views import student_register, registration
 from vegetable.views import vegetable
-
-
+from courses.views import *
+from recipes.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),  # render karke banaya hai and In this project, this is home page as default page
+    # render karke banaya hai and In this project, this is home page as default page
+    path('', home, name='home'),
     path('about/', about, name='about'),  # httpResponse
     path('display_time/', display_time, name='display_time'),
     path('twentyfour/', twentyfour, name='twentyfour'),
@@ -25,7 +26,9 @@ urlpatterns = [
     path('registration/', registration, name='registration'),
     path('student_register/', student_register, name='student_register'),
     path('vegetable/', vegetable, name='vegetable'),
-
-
+    # yaha pe "course" app ka naam nahi hai kuch bhi naam de sakte hai
+    path('course/', include('courses.urls')),
+    # "recipes first wala part" ke naam pe jo bhi naa de shakte jo browser ke url mai dikhai dega
+    path('recipe/', include('recipes.urls')),
 
 ]

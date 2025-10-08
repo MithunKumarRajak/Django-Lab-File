@@ -322,7 +322,48 @@ urlpatterns = [
 ##---------------------------------- 4 Days ------------------------------------
 
 
+# 🐍 Django 404 Error Summary: `Page not found (404)`
 
+## ❌ Error Message
+```
 
+Page not found (404)
+Request Method: GET
+Request URL: <http://127.0.0.1:8000/course>
 
+```
 
+## 📄 URLconf Configuration
+```python
+urlpatterns = [
+    path('', views.course, name='course'),
+    path('recipes/', include('recipes.urls')),
+]
+```
+
+## 🧠 Explanation
+
+- The URL `http://127.0.0.1:8000/course` does **not match any defined path** in your `urlpatterns`.
+- You only defined:
+  - `''` → matches the root URL (`http://127.0.0.1:8000/`)
+  - `'recipes/'` → matches URLs like `http://127.0.0.1:8000/recipes/`
+
+## ✅ Solution
+
+To make `/course` work, update your `urlpatterns` like this:
+
+```python
+urlpatterns = [
+    path('course/', views.course, name='course'),
+]
+```
+
+Now, visiting `http://127.0.0.1:8000/course` will correctly route to the `course` view.
+
+## 📌 Notes
+
+- The string `'course/'` is the **URL prefix** — it can be anything you want (e.g., `'learn/'`, `'topics/'`).
+- The `views.course` must be defined in your `views.py`.
+- Always restart your Django server after making changes to `urls.py`.
+
+## ---------------------------------- 5 Days ------------------------------------

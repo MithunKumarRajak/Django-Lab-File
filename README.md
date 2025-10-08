@@ -1,3 +1,4 @@
+## ------------------------------------ 1 Day ------------------------------------
 
 # Django Project – Technical Summary of Issues & Fixes
 
@@ -280,7 +281,7 @@ urlpatterns = [
     path('student/', registration, name='student_register'),
 ]
 
-##---------------------------- 3 Day--------------------------------
+ ## ------------------------------------ 3 Day ------------------------------------
 ## About static Folder
 
 ## 🧾 Summary of Issues and Solutions
@@ -319,7 +320,7 @@ urlpatterns = [
 - **Solution:**  
   ✅ Add `{% load static %}` at the top of your template.
 
-##---------------------------------- 4 Days ------------------------------------
+## ---------------------------------- 4 Days ------------------------------------
 
 
 # 🐍 Django 404 Error Summary: `Page not found (404)`

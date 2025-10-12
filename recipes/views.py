@@ -16,6 +16,6 @@ def recipe(request):
             recipeImage=recipeImage
         )
 
-        """redirect to the same page after submission Or--> return redirect('recipe') Dono kaam karta hai"""
+        """redirect to the same page after submission Or --> return redirect('recipe') Dono kaam karta hai"""
         return redirect('/recipe/')
     return render(request, 'recipes/recipe.html')

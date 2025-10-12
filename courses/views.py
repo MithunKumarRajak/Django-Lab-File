@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import courses
+from .forms import FeedbackForm
 
 
 def course(request):
@@ -9,15 +10,21 @@ def course(request):
         phone = request.POST.get("phone")
         course = request.POST.get("course")
         start_date = request.POST.get("start_date")
-
-        if full_name and email and phone and course and start_date:
-            courses.objects.create(
-                full_name=full_name,
-                email=email,
-                phone=phone,
-                course=course,
-                start_date=start_date
-            )
-            return render(request, "courses/success.html", {"name": full_name})
     return render(request, "courses/index.html")
 
+
+def feedback(request):
+    submitted = False  # Flag to show thank-you message
+
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirect to same form with query param
+            return redirect('/feedback/?submitted=True')
+    else:
+        form = FeedbackForm()
+        if 'submitted' in request.GET:
+            submitted = True
+
+    return render(request, 'courses/feedback.html', {'form': form, 'submitted': submitted})

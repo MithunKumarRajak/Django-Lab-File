@@ -12,17 +12,14 @@
       <!--multipart/form-data :- Important for file uploads otherwise only text
       data will be sent.-->
       {% csrf_token %}
-      <!-- Security measure to prevent CSRF
-      attacks -->
+      <!-- Security measure to prevent CSRF means client jab form submit karta hai toh server check karta hai ki wo that specific client se hi aya hai ya nahi. Isse malicious attacks prevent hota hai -->
       <h2>Add a Recipe</h2>
       <div class="mb-3">
         <label for="recipeName" class="form-label">Recipe Name</label>
         <input type="text" name="recipeName" required />
       </div>
       <div class="mb-3">
-        <label for="recipeDescription" class="form-label"
-          >Recipe Description</label
-        >
+        <label for="recipeDescription" class="form-label">Recipe Description</label>
         <textarea name="recipeDescription" rows="4" required></textarea>
       </div>
       <div class="mb-3">

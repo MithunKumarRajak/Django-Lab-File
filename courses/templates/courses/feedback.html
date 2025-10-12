@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Form</title>
+    <style>
+      /* Your existing CSS here */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Feedback Form</h1>
+
+      {% if submitted %}
+      <p style="color: lightgreen; font-weight: bold">
+        Thank you! Your feedback has been submitted.
+      </p>
+      {% endif %}
+
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

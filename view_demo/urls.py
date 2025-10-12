@@ -11,6 +11,7 @@ from vegetable.views import vegetable
 from courses.views import *
 from recipes.views import *
 
+from courses.views import feedback
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +31,5 @@ urlpatterns = [
     path('course/', include('courses.urls')),
     # "recipes first wala part" ke naam pe jo bhi naa de shakte jo browser ke url mai dikhai dega
     path('recipe/', include('recipes.urls')),
-
+    path('feedback/', feedback, name='feedback'),
 ]

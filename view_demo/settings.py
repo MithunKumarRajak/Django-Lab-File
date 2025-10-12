@@ -142,7 +142,7 @@ STATIC_DIR = BASE_DIR / 'static'
 STATICFILES_DIRS = [STATIC_DIR,]
 
 # URL to access static files & means ki static files ko kaise access karna hai
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 # for production use & Directory where static files will be collected
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

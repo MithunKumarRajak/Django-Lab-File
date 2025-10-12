@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import courses
 from .forms import FeedbackForm
 
@@ -15,7 +15,6 @@ def course(request):
 
 def feedback(request):
     submitted = False  # Flag to show thank-you message
-
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():

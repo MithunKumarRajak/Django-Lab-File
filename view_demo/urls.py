@@ -6,11 +6,10 @@ from about.views import about, home
 from display_time.views import display_time, twentyfour
 from display.views import fruit_student, fruit_student_api, fruit_student_page, article_student
 # from display.views import fruit_student_api # above mention
-from registration.views import student_register, registration
+from registration.views import *
 from vegetable.views import vegetable
 from courses.views import *
 from recipes.views import *
-
 from courses.views import feedback
 
 urlpatterns = [
@@ -29,7 +28,8 @@ urlpatterns = [
     path('vegetable/', vegetable, name='vegetable'),
     # yaha pe "course" app ka naam nahi hai kuch bhi naam de sakte hai
     path('course/', include('courses.urls')),
-    # "recipes first wala part" ke naam pe jo bhi naa de shakte jo browser ke url mai dikhai dega
+    # "recipes first wala part" ke naam pe jo bhi naam de shakte jo browser ke url mai likhge
     path('recipe/', include('recipes.urls')),
     path('feedback/', feedback, name='feedback'),
+    path('courseFee/', include('registration.urls')),
 ]

@@ -24,3 +24,11 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
+
+class Course(models.Model):
+    courseName = models.CharField(max_length=100)
+    courseFee = models.FloatField()
+    courseInstructor = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.courseName

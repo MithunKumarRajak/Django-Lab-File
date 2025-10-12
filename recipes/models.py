@@ -7,7 +7,7 @@ class Recipe(models.Model):
     recipeName = models.CharField(max_length=100)
     recipeDescription = models.TextField()
     recipeImage = models.ImageField(
-        upload_to='staticfiles/images/', blank=True, null=True)
+        upload_to='static/images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

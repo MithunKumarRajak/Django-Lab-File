@@ -4,29 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Page</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #34445cff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .card {
+        background-color: #5b8697ff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        text-align: left;
+      }
+
+      .card h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .mb-3 {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      input[type="text"],
+      textarea,
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #253c3eff;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+
+      textarea,
+      input[type="text"],
+      input[type="file"] {
+        background-color: #354c5f;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+      }
+
+      button {
+        background-color: #377045ff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Welcome to the recipe page!</h1>
-    <form method="post" enctype="multipart/form-data">
-      <!--multipart/form-data :- Important for file uploads otherwise only text
-      data will be sent.-->
-      {% csrf_token %}
-      <!-- Security measure to prevent CSRF means client jab form submit karta hai toh server check karta hai ki wo that specific client se hi aya hai ya nahi. Isse malicious attacks prevent hota hai -->
+    <div class="card">
       <h2>Add a Recipe</h2>
-      <div class="mb-3">
-        <label for="recipeName" class="form-label">Recipe Name</label>
-        <input type="text" name="recipeName" required />
-      </div>
-      <div class="mb-3">
-        <label for="recipeDescription" class="form-label">Recipe Description</label>
-        <textarea name="recipeDescription" rows="4" required></textarea>
-      </div>
-      <div class="mb-3">
-        <label for="recipeImage" name="recipeImage">Recipe Image</label>
-        <input type="file" name="recipeImage" />
-      </div>
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+
+      <!-- 📤 Form for submitting recipe data -->
+      <form method="post" enctype="multipart/form-data">
+        <!-- multipart/form-data is important for file uploads.
+             Without it, only text data will be sent. -->
+
+        {% csrf_token %}
+        <!-- CSRF token is a security measure to prevent Cross-Site Request Forgery.
+             It ensures the form submission is coming from the same client,
+             protecting against malicious attacks. -->
+
+        <div class="mb-3">
+          <label for="recipeName">Recipe Name</label>
+          <input type="text" name="recipeName" id="recipeName" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="recipeDescription">Recipe Description</label>
+          <textarea
+            name="recipeDescription"
+            id="recipeDescription"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="recipeImage">Recipe Image</label>
+          <input type="file" name="recipeImage" id="recipeImage" />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </body>
 </html>

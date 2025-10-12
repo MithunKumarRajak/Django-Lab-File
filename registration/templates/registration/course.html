@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Courses</title>
+  </head>
+  <body>
+    <h1>Courses Offered</h1>
+    {% if course_data != '' %}
+    <table border="1">
+      <tr>
+        <th>Course Name</th>
+        <th>Course Fee</th>
+        <th>Course Instructor</th>
+      </tr>
+      {% for course in course_data %}
+      <tr>
+        <td>{{ course.courseName }}</td>
+        <td>{{ course.courseFee }}</td>
+        <td>{{ course.courseInstructor }}</td>
+      </tr>
+      {% endfor %} {% else %}
+      <h2>No Courses Available</h2>
+      {% endif %}
+    </table>
+  </body>
+</html>

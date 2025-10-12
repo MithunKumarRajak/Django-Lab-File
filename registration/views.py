@@ -1,12 +1,12 @@
-from .models import Student
+from .models import *
 from django.shortcuts import render
 # Create your views here.
 
 
 def registration(request):
-    students = [" ", "Mithun", "Kumar", "Rajak"]
-    courses = [" ", "Python Basics",
-               "Cybersecurity (v12)", "Web Dev", " Django", "Java", "Js", "OS"]
+    students = ["", "Maharaja", "Mithun", "Kumar", "Kamlesh", "Rajak"]
+    courses = ["", "DSA", "Python Basics",
+               "Cybersecurity (v12)", "Web Dev", "Django", "Java", "Js", "OS"]
 
     context = {
         "students": students,
@@ -15,6 +15,7 @@ def registration(request):
     return render(request, "registration/index.html", context)
 
 # trying to add data to database
+
 
 def student_register(request):
     if request.method == "POST":
@@ -30,3 +31,11 @@ def student_register(request):
             })
 
     return render(request, "registration/student.html")
+
+# new view for course list
+def courseFee(request):
+    data = Course.objects.all()
+    records = {
+        "course_data": data
+    }
+    return render(request, "registration/course.html", context=records)

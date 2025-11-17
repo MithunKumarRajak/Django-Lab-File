@@ -27,3 +27,35 @@ def feedback(request):
             submitted = True
 
     return render(request, 'courses/feedback.html', {'form': form, 'submitted': submitted})
+
+#
+
+
+def course_list(request):
+    courses = [
+        "C Programming",
+        "Python Programming",
+        "Database Management System",
+        "Web Development",
+        "Data Structures",
+        "Django",
+        "Operations System",
+
+    ]
+
+    students = [
+        "Mithun Kumar",
+        "Kaushik Sharma",
+        "Mohan Gupta",
+        "Aditya Singh",
+        "Dilip singh",
+        "Mithun Kumar Rajak",
+        "Mohit Rajak",
+    ]
+
+    context = {
+        'courses': courses,
+        'students': students,
+    }
+
+    return render(request, 'courses/course.html', context)

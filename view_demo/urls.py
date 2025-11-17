@@ -11,6 +11,7 @@ from vegetable.views import vegetable
 from courses.views import *
 from recipes.views import *
 from courses.views import feedback
+from itapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +33,6 @@ urlpatterns = [
     path('recipe/', include('recipes.urls')),
     path('feedback/', feedback, name='feedback'),
     path('courseFee/', include('registration.urls')),
+    # yaha pe "event" app ka naam itapp hai kuch bhi naam de sakte hai
+    path('itapp/', include('itapp.urls')),
 ]

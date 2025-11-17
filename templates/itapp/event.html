@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IT Event List</title>
+</head>
+
+<body>
+    <h1>IT Event</h1>
+
+    <h2>Materials Required</h2>
+    <ul>
+        {% for item in materials %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Selected Students</h2>
+    <ol>
+        {% for student in students %}
+        <li>{{ student }}</li>
+        {% endfor %}
+    </ol>
+
+</body>
+
+</html>

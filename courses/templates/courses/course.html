@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Course & Event Students</title>
+</head>
+
+<body>
+    <h1>Course List</h1>
+
+    <ol>
+        {% for course in courses %}
+        <li>{{ course }}</li>
+        {% endfor %}
+    </ol>
+
+    <h1>Selected Students for Event</h1>
+
+    <ol>
+        {% for student in students %}
+        <li>{{ student }}</li>
+        {% endfor %}
+    </ol>
+
+</body>
+
+</html>

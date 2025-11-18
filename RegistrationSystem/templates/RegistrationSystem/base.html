@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Registration System{% endblock %}</title>
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <nav style="background:#333; padding:10px;">
+        <a href="{% url 'rs_home' %}" style="color:white; margin-right:15px;">Home</a>
+        <a href="{% url 'rs_register_student' %}" style="color:white; margin-right:15px;">Register Student</a>
+        <a href="{% url 'rs_course_students' %}" style="color:white; margin-right:15px;">Course-wise Students</a>
+    </nav>
+
+    <!-- Page Content -->
+    <div style="padding:20px;">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer style="background:#333; color:white; text-align:center; padding:10px; margin-top:20px;">
+        <p>&copy; 2025 Student–Course Registration System | Developed by Mithun Kumar Rajak</p>
+    </footer>
+
+</body>
+
+</html>

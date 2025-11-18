@@ -1,0 +1,33 @@
+<!-- library/templates/library/base template -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Library System{% endblock %}</title>
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <nav style="background:#222; padding:10px;">
+        <a href="{% url 'home' %}" style="color:white; margin-right:15px;">Home</a>
+        <a href="{% url 'about' %}" style="color:white; margin-right:15px;">About Us</a>
+        <a href="{% url 'contact' %}" style="color:white; margin-right:15px;">Contact Us</a>
+        <a href="{% url 'students_books' %}" style="color:white; margin-right:15px;">Students & Books</a>
+    </nav>
+
+    <!-- Page Specific Content -->
+    <div style="padding:20px;">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer style="background:#0e0000; color:white; text-align:center; padding:10px;">
+        <p>© 2025 Library System | Developed by Mithun Kumar Rajak </p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+<h2>Edit Book</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Book</button>
+</form>
+
+<a href="{% url 'students_books' %}">Back to Students & Books</a>

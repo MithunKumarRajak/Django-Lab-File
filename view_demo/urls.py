@@ -38,6 +38,7 @@ urlpatterns = [
     path('myapp/', include('myapp.urls')),
     path('registration/', include('registration.urls')),
     path("library/", include("library.urls")),
-    
+    path("registrationSystem/", include("RegistrationSystem.urls")),
+
 
 ]

@@ -1,0 +1,27 @@
+{% extends "RegistrationSystem/base.html" %}
+
+{% block title %}Course-wise Students{% endblock %}
+
+{% block content %}
+<h2>Course-wise Students List</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Show Students</button>
+</form>
+
+{% if selected_course %}
+<h3>Students registered in: {{ selected_course.name }} ({{ selected_course.code }})</h3>
+
+{% if students %}
+<ul>
+    {% for student in students %}
+    <li>{{ student.name }} — {{ student.email }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No students registered for this course.</p>
+{% endif %}
+{% endif %}
+{% endblock %}

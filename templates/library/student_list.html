@@ -6,7 +6,17 @@
 </head>
 
 <body>
-    <h2>All Registered Students</h2>
+
+    <h2>Student Records</h2>
+
+    <!-- 🔍 Search Bar -->
+    <form method="GET">
+        <input type="text" name="search" placeholder="Search by name, course or roll no"
+            value="{{ request.GET.search }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
 
     <table border="1" cellpadding="8">
         <tr>
@@ -26,9 +36,19 @@
         {% empty %}
         <tr>
             <td colspan="4">No students found</td>
+            <td><a href="{% url 'edit_student' student.id %}">Edit</a></td>
+
         </tr>
         {% endfor %}
     </table>
+
+    <br>
+    <td>
+        <a href="{% url 'add_student' %}">Add Student</a>
+
+        <a href="{% url 'edit_student' student.id %}">Edit</a> |
+        <a href="{% url 'delete_student' student.id %}">Delete</a>
+    </td>
 
 </body>
 

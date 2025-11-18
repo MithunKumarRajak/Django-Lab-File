@@ -61,6 +61,7 @@ EXTERNAL_APPS = [
     'recipes',
     'itapp',
     'library',
+    'RegistrationSystem',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS

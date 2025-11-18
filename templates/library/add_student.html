@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Student</title>
+</head>
+
+<body>
+    <h2>Add New Student</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Auto generates form fields -->
+        <button type="submit">Add Student</button>
+    </form>
+
+    <br>
+    <a href="{% url 'student_list' %}">View Students List</a>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<h2>Course-wise Students List</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Show</button>
+</form>
+
+{% if students %}
+    <h3>Students Registered:</h3>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }} ({{ student.email }})</li>
+        {% endfor %}
+    </ul>
+{% elif students is not None %}
+    <p>No students registered for this course.</p>
+{% endif %}

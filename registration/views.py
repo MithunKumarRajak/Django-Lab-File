@@ -1,41 +1,30 @@
-from .models import *
-from django.shortcuts import render
-# Create your views here.
+from django.shortcuts import render, redirect
+from .forms import StudentForm, CourseSelectForm
+from .models import Course
 
 
-def registration(request):
-    students = ["", "Maharaja", "Mithun", "Kumar", "Kamlesh", "Rajak"]
-    courses = ["", "DSA", "Python Basics",
-               "Cybersecurity (v12)", "Web Dev", "Django", "Java", "Js", "OS"]
-
-    context = {
-        "students": students,
-        "courses": courses
-    }
-    return render(request, "registration/index.html", context)
-
-# trying to add data to database
-
-
-def student_register(request):
+def register(request):
     if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        course = request.POST.get("course")
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('courseStudents')
 
-        # basic empty check (optional)
-        if name and email and course:
-            Student.objects.create(name=name, email=email, course=course)
-            return render(request, "registration/student.html", {
-                "success": True
-            })
+    else:
+        form = StudentForm()
 
-    return render(request, "registration/student.html")
+    return render(request, "registration/register.html", {'form': form})
 
-# new view for course list
-def courseFee(request):
-    data = Course.objects.all()
-    records = {
-        "course_data": data
-    }
-    return render(request, "registration/course.html", context=records)
+
+def courseStudents(request):
+    form = CourseSelectForm(request.POST or None)
+    students = None
+
+    if request.method == "POST" and form.is_valid():
+        course = form.cleaned_data['course']
+        students = course.students.all()
+
+    return render(request, "registration/course_students.html", {
+        'form': form,
+        'students': students,
+    })

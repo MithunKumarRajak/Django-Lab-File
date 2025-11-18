@@ -12,6 +12,8 @@ from courses.views import *
 from recipes.views import *
 from courses.views import feedback
 from itapp.views import *
+from myapp.views import *
+from library.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,8 +26,6 @@ urlpatterns = [
     path('fruit_student/api/', fruit_student_api, name='fruit_student_api'),
     path('fruit_student_page/', fruit_student_page, name='fruit_student_page'),
     path('article_student/', article_student, name='article_student'),
-    path('registration/', registration, name='registration'),
-    path('student_register/', student_register, name='student_register'),
     path('vegetable/', vegetable, name='vegetable'),
     # yaha pe "course" app ka naam nahi hai kuch bhi naam de sakte hai
     path('course/', include('courses.urls')),
@@ -35,4 +35,9 @@ urlpatterns = [
     path('courseFee/', include('registration.urls')),
     # yaha pe "event" app ka naam itapp hai kuch bhi naam de sakte hai
     path('itapp/', include('itapp.urls')),
+    path('myapp/', include('myapp.urls')),
+    path('registration/', include('registration.urls')),
+    path("library/", include("library.urls")),
+    
+
 ]

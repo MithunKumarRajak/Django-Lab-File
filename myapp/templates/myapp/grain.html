@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grains & Event Students</title>
+</head>
+
+<body>
+    <h1>Ordered List of Grains</h1>
+    <ol>
+        {% for grain in grains %}
+        <li>{{ grain }}</li>
+        {% endfor %}
+    </ol>
+
+    <h1>Selected Students for Event</h1>
+    <ol>
+        {% for student in students %}
+        <li>{{ student }}</li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>

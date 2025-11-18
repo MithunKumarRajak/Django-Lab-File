@@ -60,6 +60,7 @@ EXTERNAL_APPS = [
     'courses',
     'recipes',
     'itapp',
+    'library',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS

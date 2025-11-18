@@ -22,3 +22,29 @@ def booking(request):
 
 def contact(request):
     return render(request, 'myapp/contact.html')
+
+
+def grain_view(request):
+    grains = [
+        "Rice",
+        "Wheat",
+        "Green Pea",
+        "peanuts",
+        "soybeans"
+    ]
+
+    students = [
+        "Mithun Kumar",
+        "Kaushik Sharma",
+        "sanket Verma",
+        "aditya Kumar",
+        "dilip Singh",
+        "Rohan ji"
+    ]
+
+    context = {
+        'grains': grains,
+        'students': students,
+    }
+
+    return render(request, 'myapp/grain.html', context)
